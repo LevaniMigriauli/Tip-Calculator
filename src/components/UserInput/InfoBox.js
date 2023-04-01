@@ -1,39 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import "./InfoBox.css";
 import Button from "../UI/Button";
 
 const InfoBox = (props) => {
   const tipsArray = [5, 10, 15, 25, 50];
+  // const [isFocused, setIsFocused] = useState("");
+
+  // const focusHandler = () => setIsFocused(true);
+
+  // const blurHandler = () => setIsFocused("");
 
   return (
-    <div>
+    <div className="info-box">
       <label> Bill</label>
       <input
-        className="bill-input"
+        className="input"
         type="number"
         value={props.input}
         onChange={props.onChange}
+        placeholder="0"
       />
-      <div>
-        {tipsArray.map((item, index) => {
-          return (
-            <Button
-              id={Number(props.percInput) === item && "active"}
-              btnPercentage={item}
-              key={index}
-              clickFunction={props.onBtnClick}
-            ></Button>
-          );
-        })}
+      <label> Select Tip %</label>
+      <div className="percentage-selection">
+        {tipsArray.map((item, index) => (
+          <Button
+            id={Number(props.percInput) === item && "active"}
+            btnPercentage={item}
+            key={index}
+            clickFunction={props.onBtnClick}
+          ></Button>
+        ))}
+        <input
+          type="number"
+          value={props.percInput}
+          placeholder="Custom"
+          onChange={props.setPercInput}
+        />
       </div>
-      <label>Custom %</label>
-      <input
-        type="number"
-        value={props.percInput}
-        onChange={props.setPercInput}
-      />
+
       <label>Number of People</label>
-      <input type="number" value={props.nOfPeople} onChange={props.nofPeople} />
+      <input
+        className="input"
+        type="number"
+        value={props.nOfPeople}
+        onChange={props.nofPeople}
+        // onFocus={focusHandler}
+        // onBlur={blurHandler}
+      />
     </div>
   );
 };

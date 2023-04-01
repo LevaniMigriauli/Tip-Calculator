@@ -1,0 +1,43 @@
+.info-box {
+  margin: 0 6px;
+}
+
+.info-box input {
+  height: 48px;
+  border: none;
+  border-radius: 5px;
+  background: #f3f9fa;
+}
+
+.info-box input:focus-visible {
+  outline: 2px solid #26c2ae;
+}
+
+.input {
+  width: 100%;
+  margin-bottom: 32px;
+}
+/* .input:focus-visible {
+  outline: 2px solid #26c2ae;
+} */
+
+/* .focus {
+  border: 2px solid red;;
+} */
+
+/* .input:focus {
+  border: 2px solid #26c2ae;
+} */
+
+.info-box .percentage-selection {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 16px;
+  column-gap: 16.56px;
+  margin-bottom: 32px;
+}
+
+.info-box .percentage-selection button {
+  height: 48px;
+  border-radius: 5px;
+}

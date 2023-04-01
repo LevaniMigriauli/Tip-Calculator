@@ -1,16 +1,17 @@
 // import logo from "./logo.svg";
 import "./App.css";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import InfoBox from "./components/UserInput/InfoBox";
-import AnswerBox from "./components/UserInput/AnswerBox";
+import CaclulatedResult from "./components/UserInput/CaclulatedResult";
 
 function App() {
-  const [inputValue, setInputValue] = useState(0);
-  const [totalTip, setTotalTip] = useState(0);
-  const [percInputValue, setPercInputValue] = useState(0);
-  const [nOfPeople, setNOfPeople] = useState(0);
+  const [inputValue, setInputValue] = useState("");
+  const [percInputValue, setPercInputValue] = useState("");
+  const [nOfPeople, setNOfPeople] = useState("");
   const [active, setActive] = useState(false);
-  const [perPersonTip, setPerPersonTip] = useState(0);
+  // Calculated
+  const [totalTip, setTotalTip] = useState("");
+  const [perPersonTip, setPerPersonTip] = useState("");
 
   function inputHandler(e) {
     setInputValue(Number(e.target.value));
@@ -45,10 +46,9 @@ function App() {
 
   return (
     <div className="app">
-      <div>
+      <React.Fragment>
         <InfoBox
           input={inputValue}
-          // setInput={setInputValue}
           totalTip={totalTip}
           setTotalTip={setTotalTip}
           percInput={percInputValue}
@@ -60,11 +60,20 @@ function App() {
           setActive={setActive}
           onChange={inputHandler}
           onBtnClick={percentageTaker}
-          // percInput={percInputHandler}
           nofPeople={nofPeopleHandler}
         />
-        <AnswerBox totalTip={totalTip} perPersonTip={perPersonTip} />
-      </div>
+        <CaclulatedResult
+          totalTip={totalTip}
+          perPersonTip={perPersonTip}
+          reset={[
+            setPerPersonTip,
+            setTotalTip,
+            setInputValue,
+            setNOfPeople,
+            setPercInputValue,
+          ]}
+        />
+      </React.Fragment>
     </div>
   );
 }
