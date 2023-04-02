@@ -9,39 +9,63 @@ function App() {
   const [percInputValue, setPercInputValue] = useState("");
   const [nOfPeople, setNOfPeople] = useState("");
   const [active, setActive] = useState(false);
+  // Validation
+  const [error, setError] = useState("");
   // Calculated
   const [totalTip, setTotalTip] = useState("");
   const [perPersonTip, setPerPersonTip] = useState("");
 
   function inputHandler(e) {
-    setInputValue(Number(e.target.value));
+    setInputValue(e.target.value);
   }
 
   function percInputHandler(e) {
     setPercInputValue(Number(e.target.value));
+    Number(nOfPeople) === 0 && nOfPeople == 0
+      ? setError(true)
+      : setError(false);
   }
 
   function nofPeopleHandler(e) {
-    setNOfPeople(Number(e.target.value));
+    setNOfPeople(e.target.value);
+
+    Number(nOfPeople) < 1 ? setError(true) : setError(false);
+
+    // if (e.target.value.trim().length == 0) {
+    //   setError("Can't be empty");
+    // } else if (Number(e.target.value.trim()) == 0) {
+    //   setError("Can't be zero");
+    // } else {
+    //   setError("");
+    // }
   }
 
   useEffect(() => {
+    // if (Number(nOfPeople) === 0) {
+    //   // setError("Can't be zero");
+    // } else {
     setPerPersonTip(
       (inputValue * percInputValue) / 100 / nOfPeople > 0
         ? (inputValue * percInputValue) / 100 / nOfPeople
         : ""
     );
+
     setTotalTip(
       ((inputValue * percInputValue) / 100 + inputValue) / nOfPeople > 0
-        ? ((inputValue * percInputValue) / 100 + inputValue) / nOfPeople
+        ? ((inputValue * percInputValue) / 100 + Number(inputValue)) / nOfPeople
         : ""
     );
+
+    Number(nOfPeople) < 1 ? setError(true) : setError(false);
   }, [inputValue, percInputValue, nOfPeople]);
 
   function percentageTaker(event) {
-    setTotalTip(((inputValue * percInputValue) / 100 + inputValue) / nOfPeople);
+    setTotalTip(
+      (inputValue * percInputValue) / 100 + Number(inputValue) / +nOfPeople
+    );
     setPercInputValue(event.target.innerText);
     setActive(!active);
+    Number(nOfPeople) < 1 ? setError(true) : setError(false);
   }
 
   return (
@@ -61,6 +85,7 @@ function App() {
           onChange={inputHandler}
           onBtnClick={percentageTaker}
           nofPeople={nofPeopleHandler}
+          error={error}
         />
         <CaclulatedResult
           totalTip={totalTip}
@@ -71,6 +96,7 @@ function App() {
             setInputValue,
             setNOfPeople,
             setPercInputValue,
+            setError,
           ]}
         />
       </React.Fragment>

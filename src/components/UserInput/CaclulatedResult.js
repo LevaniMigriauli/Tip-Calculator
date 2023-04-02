@@ -6,9 +6,11 @@ import Card from "../UI/Card";
 const CaclulatedResult = (props) => {
   const resetHandler = () => {
     props.reset.forEach((element) => {
-      element(0);
+      element("");
     });
   };
+
+  console.log(props.totalTip);
 
   return (
     <Card className="Caclulated-result">

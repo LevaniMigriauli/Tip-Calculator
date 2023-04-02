@@ -9,21 +9,33 @@
   background: #f3f9fa;
 }
 
-.info-box input:focus-visible {
+/* .info-box input:focus-visible {
   outline: 2px solid #26c2ae;
-}
+} */
 
 .input {
   width: 100%;
   margin-bottom: 32px;
 }
-/* .input:focus-visible {
-  outline: 2px solid #26c2ae;
-} */
 
-/* .focus {
-  border: 2px solid red;;
-} */
+.error {
+  outline: 2px solid #e17052;
+  position: relative;
+}
+
+.error::after {
+  content: "Cant be zero";
+  color: blue;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 100;
+}
+
+.focus {
+  outline: 2px solid #26c2ae;
+}
 
 /* .input:focus {
   border: 2px solid #26c2ae;
