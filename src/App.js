@@ -21,23 +21,13 @@ function App() {
 
   function percInputHandler(e) {
     setPercInputValue(Number(e.target.value));
-    Number(nOfPeople) === 0 && nOfPeople == 0
-      ? setError(true)
-      : setError(false);
+    Number(nOfPeople) === 0 ? setError(true) : setError(false);
   }
 
   function nofPeopleHandler(e) {
     setNOfPeople(e.target.value);
 
     Number(nOfPeople) < 1 ? setError(true) : setError(false);
-
-    // if (e.target.value.trim().length == 0) {
-    //   setError("Can't be empty");
-    // } else if (Number(e.target.value.trim()) == 0) {
-    //   setError("Can't be zero");
-    // } else {
-    //   setError("");
-    // }
   }
 
   useEffect(() => {
@@ -70,36 +60,29 @@ function App() {
 
   return (
     <div className="app">
-      <React.Fragment>
-        <InfoBox
-          input={inputValue}
-          totalTip={totalTip}
-          setTotalTip={setTotalTip}
-          percInput={percInputValue}
-          setPercInput={percInputHandler}
-          setPerPersonTip={setPerPersonTip}
-          nOfPeople={nOfPeople}
-          setNOfPeople={setNOfPeople}
-          active={active}
-          setActive={setActive}
-          onChange={inputHandler}
-          onBtnClick={percentageTaker}
-          nofPeople={nofPeopleHandler}
-          error={error}
-        />
-        <CaclulatedResult
-          totalTip={totalTip}
-          perPersonTip={perPersonTip}
-          reset={[
-            setPerPersonTip,
-            setTotalTip,
-            setInputValue,
-            setNOfPeople,
-            setPercInputValue,
-            setError,
-          ]}
-        />
-      </React.Fragment>
+      <InfoBox
+        input={inputValue}
+        percInput={percInputValue}
+        setPercInput={percInputHandler}
+        nOfPeople={nOfPeople}
+        active={active}
+        onChange={inputHandler}
+        onBtnClick={percentageTaker}
+        nofPeople={nofPeopleHandler}
+        error={error}
+      />
+      <CaclulatedResult
+        totalTip={totalTip}
+        perPersonTip={perPersonTip}
+        reset={[
+          setPerPersonTip,
+          setTotalTip,
+          setInputValue,
+          setNOfPeople,
+          setPercInputValue,
+          setError,
+        ]}
+      />
     </div>
   );
 }

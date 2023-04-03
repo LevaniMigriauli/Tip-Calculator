@@ -1,7 +1,6 @@
 import React from "react";
 import "./CaclulatedResult.css";
 import Card from "../UI/Card";
-// import InfoBox from "./InfoBox";
 
 const CaclulatedResult = (props) => {
   const resetHandler = () => {
@@ -10,7 +9,7 @@ const CaclulatedResult = (props) => {
     });
   };
 
-  console.log(props.totalTip);
+  // console.log(props.totalTip);
 
   return (
     <Card className="Caclulated-result">
