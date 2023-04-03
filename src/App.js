@@ -8,7 +8,6 @@ function App() {
   const [inputValue, setInputValue] = useState("");
   const [percInputValue, setPercInputValue] = useState("");
   const [nOfPeople, setNOfPeople] = useState("");
-  const [active, setActive] = useState(false);
   // Validation
   const [error, setError] = useState("");
   // Calculated
@@ -54,7 +53,6 @@ function App() {
       (inputValue * percInputValue) / 100 + Number(inputValue) / +nOfPeople
     );
     setPercInputValue(event.target.innerText);
-    setActive(!active);
     Number(nOfPeople) < 1 ? setError(true) : setError(false);
   }
 
@@ -65,7 +63,6 @@ function App() {
         percInput={percInputValue}
         setPercInput={percInputHandler}
         nOfPeople={nOfPeople}
-        active={active}
         onChange={inputHandler}
         onBtnClick={percentageTaker}
         nofPeople={nofPeopleHandler}
