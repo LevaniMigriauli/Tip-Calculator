@@ -2,15 +2,12 @@ import React, { useState } from "react";
 import "./InfoBox.css";
 import Button from "../UI/Button";
 
+const tipsArray = [5, 10, 15, 25, 50];
 const InfoBox = (props) => {
-  const tipsArray = [5, 10, 15, 25, 50];
-
-  const [isFocused, setIsFocused] = useState("");
+  const [isFocused, setIsFocused] = useState(false);
 
   const focusHandler = () => setIsFocused(true);
-  const blurHandler = () => setIsFocused("");
-
-  // console.log(props.error);
+  const blurHandler = () => setIsFocused(false);
 
   return (
     <div className="info-box">

@@ -9,7 +9,7 @@ const CaclulatedResult = (props) => {
     });
   };
 
-  // console.log(props.totalTip);
+  // console.log(props.totalTip, props.perPersonTip);
 
   return (
     <Card className="Caclulated-result">
