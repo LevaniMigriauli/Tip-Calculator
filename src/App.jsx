@@ -1,6 +1,6 @@
 // import logo from "./logo.svg";
 import "./App.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import InfoBox from "./components/UserInput/InfoBox";
 import CaclulatedResult from "./components/UserInput/CaclulatedResult";
 
@@ -9,10 +9,15 @@ function App() {
   const [percInputValue, setPercInputValue] = useState("");
   const [nOfPeople, setNOfPeople] = useState(1);
   // Validation
-  // const [error, setError] = useState(false);
+  const [error, setError] = useState("");
+
   // Calculated
   // const [totalTip, setTotalTip] = useState("");
   // const [perPersonTip, setPerPersonTip] = useState("");
+
+  useEffect(() => {
+    nOfPeople === 0 ? setError("Can't be zero") : setError("");
+  }, [nOfPeople]);
 
   function inputHandler(e) {
     setInputValue(Number(e.target.value));
@@ -46,7 +51,7 @@ function App() {
         onChange={inputHandler}
         // onBtnClick={percentageTaker}
         nofPeople={nofPeopleHandler}
-        // error={error}
+        peopleInputError={error}
       />
       <CaclulatedResult
         totalTip={totalTip}

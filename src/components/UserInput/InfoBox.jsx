@@ -3,6 +3,7 @@ import "./InfoBox.css";
 import Button from "../UI/Button";
 
 const tipsArray = [5, 10, 15, 25, 50];
+
 const InfoBox = (props) => {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -15,6 +16,7 @@ const InfoBox = (props) => {
       <input
         className="input"
         type="number"
+        min={0}
         value={props.input}
         onChange={props.onChange}
         placeholder="0"
@@ -29,11 +31,14 @@ const InfoBox = (props) => {
             btnPercentage={item}
             key={index}
             onClick={() => props.setPercInput(item)}
-          ></Button>
+          >
+            
+          </Button>
         ))}
         <input
           className="input"
           type="number"
+          min={0}
           value={props.percInput}
           placeholder="Custom"
           onChange={(e) => props.setPercInput(e.target.value)}
@@ -43,10 +48,13 @@ const InfoBox = (props) => {
       </div>
 
       <label>Number of People</label>
-      <span>{props.error}</span>
+      <span>{props.peopleInputError}</span>
       <input
-        className={`input ${props.error ? "error" : isFocused ? "focus" : ""}`}
+        className={`input ${
+          props.peopleInputError ? "error" : isFocused ? "focus" : ""
+        }`}
         type="number"
+        min={0}
         value={props.nOfPeople}
         onChange={props.nofPeople}
         onFocus={focusHandler}
