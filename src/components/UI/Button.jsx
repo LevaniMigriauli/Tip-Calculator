@@ -2,15 +2,9 @@ import "./Button.css";
 
 const Button = (props) => {
   return (
-    <>
-      <button
-        id={props.id}
-        className="btn"
-        onClick={(e) => props.clickFunction(e)}
-      >
-        {props.btnPercentage}
-      </button>
-    </>
+    <button id={props.id} className="btn" onClick={props.onClick}>
+      {props.btnPercentage}
+    </button>
   );
 };
 

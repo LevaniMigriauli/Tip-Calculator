@@ -1,6 +1,6 @@
 // import logo from "./logo.svg";
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import InfoBox from "./components/UserInput/InfoBox";
 import CaclulatedResult from "./components/UserInput/CaclulatedResult";
 
@@ -19,25 +19,19 @@ function App() {
   }
 
   function percInputHandler(e) {
-    setPercInputValue(Number(e.target.value));
+    setPercInputValue(Number(e));
   }
 
   function nofPeopleHandler(e) {
     setNOfPeople(Number(e.target.value));
   }
 
-  function percentageTaker(event) {
-    setPercInputValue(event.target.textContent);
-  }
-
-  console.log(inputValue, percInputValue, nOfPeople);
-
   const perPersonTip =
     (inputValue * percInputValue) / 100 / nOfPeople > 0
-      ? (inputValue * percInputValue) / 100 / nOfPeople
+      ? ((inputValue * percInputValue) / 100 / nOfPeople).toFixed(2)
       : "";
 
-  let totalTip = (
+  const totalTip = (
     (inputValue * (1 + percInputValue / 100)) /
     nOfPeople
   ).toFixed(2);
@@ -50,7 +44,7 @@ function App() {
         setPercInput={percInputHandler}
         nOfPeople={nOfPeople}
         onChange={inputHandler}
-        onBtnClick={percentageTaker}
+        // onBtnClick={percentageTaker}
         nofPeople={nofPeopleHandler}
         // error={error}
       />

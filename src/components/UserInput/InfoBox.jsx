@@ -28,7 +28,7 @@ const InfoBox = (props) => {
             id={Number(props.percInput) === item && "active"}
             btnPercentage={item}
             key={index}
-            clickFunction={props.onBtnClick}
+            onClick={() => props.setPercInput(item)}
           ></Button>
         ))}
         <input
@@ -36,7 +36,7 @@ const InfoBox = (props) => {
           type="number"
           value={props.percInput}
           placeholder="Custom"
-          onChange={props.setPercInput}
+          onChange={(e) => props.setPercInput(e.target.value)}
           // onFocus={focusHandler}
           // onBlur={blurHandler}
         />
