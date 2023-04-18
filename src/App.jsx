@@ -7,17 +7,7 @@ import CaclulatedResult from "./components/UserInput/CaclulatedResult";
 function App() {
   const [inputValue, setInputValue] = useState("");
   const [percInputValue, setPercInputValue] = useState("");
-  const [nOfPeople, setNOfPeople] = useState(1);
-  // Validation
-  const [error, setError] = useState("");
-
-  // Calculated
-  // const [totalTip, setTotalTip] = useState("");
-  // const [perPersonTip, setPerPersonTip] = useState("");
-
-  useEffect(() => {
-    nOfPeople === 0 ? setError("Can't be zero") : setError("");
-  }, [nOfPeople]);
+  const [nOfPeople, setNOfPeople] = useState("");
 
   function inputHandler(e) {
     setInputValue(Number(e.target.value));
@@ -31,15 +21,21 @@ function App() {
     setNOfPeople(Number(e.target.value));
   }
 
-  const perPersonTip =
+  let perPersonTip =
     (inputValue * percInputValue) / 100 / nOfPeople > 0
       ? ((inputValue * percInputValue) / 100 / nOfPeople).toFixed(2)
-      : "";
+      : "0.00";
 
-  const totalTip = (
-    (inputValue * (1 + percInputValue / 100)) /
-    nOfPeople
-  ).toFixed(2);
+  let totalTip =
+    (inputValue * (1 + percInputValue / 100)) / nOfPeople > 0
+      ? ((inputValue * (1 + percInputValue / 100)) / nOfPeople).toFixed(2)
+      : "0.00";
+
+  const resetHandler = () => {
+    setInputValue("");
+    setPercInputValue("");
+    setNOfPeople("");
+  };
 
   return (
     <div className="app">
@@ -48,22 +44,13 @@ function App() {
         percInput={percInputValue}
         setPercInput={percInputHandler}
         nOfPeople={nOfPeople}
-        onChange={inputHandler}
-        // onBtnClick={percentageTaker}
+        onChangeBill={inputHandler}
         nofPeople={nofPeopleHandler}
-        peopleInputError={error}
       />
       <CaclulatedResult
         totalTip={totalTip}
         perPersonTip={perPersonTip}
-        // reset={[
-        //   setPerPersonTip,
-        //   setTotalTip,
-        //   setInputValue,
-        //   setNOfPeople,
-        //   setPercInputValue,
-        //   setError,
-        // ]}
+        reset={resetHandler}
       />
     </div>
   );
