@@ -3,9 +3,24 @@
 }
 
 .info-box input {
+  padding: 6px 17px;
   height: 48px;
   border: none;
   border-radius: 5px;
+}
+
+.info-box p {
+  color: #5e7a7d;
+  margin-bottom: 16px;
+}
+.perc-input {
+  /* text-align: center !important; */
+}
+
+.info-box img {
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 /* .info-box input:focus-visible {

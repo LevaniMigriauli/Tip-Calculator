@@ -4,9 +4,20 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: Space-Mono;
+  font-weight: 700;
+  src: url(./assets/fonts/Space_Mono/SpaceMono-Bold.ttf);
+}
+
+body {
+  font-family: Space-Mono;
+  /* font-weight: 700; */
+}
+
 div:has(.app) {
   background: #c5e4e7;
-  width: 375px;
+  /* width: 375px; */
   height: 933px;
   display: flex;
   flex-direction: column;
@@ -29,6 +40,6 @@ div:has(.app)::before {
   width: 100%;
   height: 789px;
   background: #fff;
-  padding: 32px 24px;
+  /* padding: 32px 24px; */
   border-radius: 25px 25px 0 0;
 }

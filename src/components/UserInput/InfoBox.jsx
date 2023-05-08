@@ -2,29 +2,37 @@ import React, { useState, useEffect } from "react";
 import "./InfoBox.css";
 import Button from "../UI/Button";
 import Input from "../UI/Input";
+import dollarIcon from "../../assets/images/dollar-icon.svg";
+import personIcon from "../../assets/images/person-icon.svg";
 
 const tipsArray = [5, 10, 15, 25, 50];
+const invalidInputText = "Can't be zero";
 
 const InfoBox = (props) => {
-  const [error, setError] = useState(false);
+  // let error = false;
+  const [error, setError] = useState("");
+
+  console.log(props.nOfPeople);
 
   useEffect(() => {
-    props.nOfPeople === 0 ? setError(true) : setError(false);
+    props.nOfPeople === 0 ? setError(invalidInputText) : setError("");
   }, [props.nOfPeople]);
 
   return (
     <div className="info-box">
-      <label> Bill</label>
-      <Input
-        className="input"
-        type="number"
-        value={props.input}
-        onChange={props.onChangeBill}
-        placeholder="0"
-        // onFocus={focusHandler}
-        // onBlur={blurHandler}
-      />
-      <label> Select Tip %</label>
+      <div className="info-box__bill">
+        <Input
+          className="input-bill"
+          type="number"
+          label="Bill"
+          value={props.input}
+          onChange={props.onChangeBill}
+          placeholder="0"
+          img={dollarIcon}
+        />
+      </div>
+
+      <p> Select Tip %</p>
       <div className="percentage-selection">
         {tipsArray.map((item, index) => (
           <Button
@@ -34,27 +42,27 @@ const InfoBox = (props) => {
             onClick={() => props.setPercInput(item)}
           ></Button>
         ))}
-        <Input
-          className="input"
-          type="number"
-          value={props.percInput}
-          placeholder="Custom"
-          onChange={(e) => props.setPercInput(e.target.value)}
-          // onFocus={focusHandler}
-          // onBlur={blurHandler}
-        />
+
+        <div className="info-box__people">
+          <Input
+            className="perc-input"
+            type="number"
+            value={props.percInput}
+            placeholder="Custom"
+            onChange={(e) => props.setPercInput(e.target.value)}
+          />
+        </div>
       </div>
 
-      <label>Number of People</label>
-      <span>{error ? "Can't be zero" : ""}</span>
       <Input
-        className={`input`}
+        className="input-nOfPeople"
         type="number"
+        placeholder="0"
+        label="Number of People"
         value={props.nOfPeople}
         onChange={props.nofPeople}
         error={error}
-        // onFocus={focusHandler}
-        // onBlur={blurHandler}
+        img={personIcon}
       />
     </div>
   );
