@@ -4,6 +4,7 @@
 }
 
 .input {
+  caret-color: #26c2ae;
   font-family: Space-Mono;
   font-weight: 700;
   font-size: 24px;
