@@ -5,6 +5,13 @@
 
   @include respond(medium) {
     width: 379px;
+    margin: 13px 0 0 16px;
+  }
+
+  &__bill {
+    input {
+      margin-bottom: 40px;
+    }
   }
 }
 
@@ -43,6 +50,18 @@
   row-gap: 16px;
   column-gap: 16.56px;
   margin-bottom: 32px;
+
+  @include respond(medium) {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 14px;
+    margin-bottom: 40px;
+  }
+
+  input {
+    @include respond(medium) {
+      padding: 6px 14px;
+    }
+  }
 }
 
 .info-box .percentage-selection button {

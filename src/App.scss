@@ -27,6 +27,11 @@ div:has(.app) {
   justify-content: flex-end;
   position: relative;
   margin: 0 auto;
+
+  @include respond(medium) {
+    height: 100vh;
+    justify-content: center;
+  }
 }
 
 div:has(.app)::before {
@@ -37,6 +42,10 @@ div:has(.app)::before {
   top: 50px;
   left: 50%;
   transform: translatex(-50%);
+
+  @include respond(medium) {
+    top: 10%;
+  }
 }
 
 .app {
@@ -45,4 +54,11 @@ div:has(.app)::before {
   background: #fff;
   /* padding: 32px 24px; */
   border-radius: 25px 25px 0 0;
+
+  @include respond(medium) {
+    width: 920px;
+    margin: 0 auto;
+    height: auto;
+    border-radius: 25px;
+  }
 }

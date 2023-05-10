@@ -1,5 +1,5 @@
 import React from "react";
-import "./CaclulatedResult.css";
+import "./CaclulatedResult.scss";
 import Card from "../UI/Card";
 
 const CaclulatedResult = ({

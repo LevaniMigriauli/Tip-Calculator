@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.css";
+import "./App.scss";
 import InfoBox from "./components/UserInput/InfoBox";
 import CaclulatedResult from "./components/UserInput/CaclulatedResult";
 import Wrapper from "./components/UI/Wrapper";

@@ -8,7 +8,9 @@
   @include respond(medium) {
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    // align-items: center;
     padding: 32px;
+    width: 920px;
+    height: 481px;
   }
 }

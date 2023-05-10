@@ -1,21 +1,36 @@
+@import "../../CSS/mixins/media-queries.scss";
+
 .Caclulated-result {
   /* width: 327px; */
   height: 257px;
   background: var(--darkgray);
   padding: 37px 22px 24px 24px;
+
+  @include respond(medium) {
+    padding: 40px;
+  }
 }
 
 .Caclulated-result div {
   color: #fff;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .Caclulated-result .tip-amount {
   margin-bottom: 21px;
+
+  @include respond(medium) {
+    margin-bottom: 25px;
+  }
 }
 .Caclulated-result .total-amount {
   margin-bottom: 33px;
+
+  @include respond(medium) {
+    margin-bottom: 122px;
+  }
 }
 
 .Caclulated-result div p:first-child {
@@ -25,6 +40,10 @@
 .Caclulated-result div p:last-child {
   color: var(--grayishGreen);
   font-size: 32px;
+
+  @include respond(medium) {
+    font-size: 48px;
+  }
 }
 
 .Caclulated-result div p span {
@@ -43,6 +62,9 @@
   height: 48px;
   border: none;
   border-radius: 5px;
+
+  @include respond(medium) {
+  }
 }
 
 .Caclulated-result .filled {

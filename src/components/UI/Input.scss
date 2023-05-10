@@ -1,3 +1,5 @@
+@import "../../CSS/mixins/media-queries.scss";
+
 .input-header {
   display: flex;
   justify-content: space-between;
@@ -14,6 +16,10 @@
   margin-bottom: 32px;
   background: #f3f9fa;
   position: relative;
+
+  @include respond(medium) {
+    margin-bottom: 0;
+  }
 }
 
 .input::placeholder {
