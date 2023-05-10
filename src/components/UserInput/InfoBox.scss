@@ -1,5 +1,11 @@
+@import "../../CSS/mixins/media-queries.scss";
+
 .info-box {
   margin: 0 6px;
+
+  @include respond(medium) {
+    width: 379px;
+  }
 }
 
 .info-box input {
@@ -10,7 +16,7 @@
 }
 
 .info-box p {
-  color: #5e7a7d;
+  color: var(--grey);
   margin-bottom: 16px;
 }
 .perc-input {

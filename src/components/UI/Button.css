@@ -1,6 +1,6 @@
 #active {
   color: #00474b;
-  background-color: #26c2ae;
+  background-color: var(--grayishGreen);
 }
 
 .btn {
@@ -8,6 +8,6 @@
   font-weight: 700;
   font-size: 24px;
   color: #ffffff;
-  background-color: #00474b;
+  background-color: var(--darkgray);
   border: none;
 }

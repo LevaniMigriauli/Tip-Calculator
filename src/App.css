@@ -1,3 +1,6 @@
+@import "./CSS/mixins/media-queries.scss";
+@import "./CSS/mixins/variables.scss";
+
 * {
   margin: 0;
   padding: 0;

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import InfoBox from "./components/UserInput/InfoBox";
 import CaclulatedResult from "./components/UserInput/CaclulatedResult";
+import Wrapper from "./components/UI/Wrapper";
 
 function App() {
   const [inputValue, setInputValue] = useState("");
@@ -45,7 +46,7 @@ function App() {
 
   return (
     <div className="app">
-      <div style={{ padding: "32px 24px" }}>
+      <Wrapper>
         <InfoBox
           input={inputValue}
           percInput={percInputValue}
@@ -60,7 +61,7 @@ function App() {
           reset={resetHandler}
           resetBtnActive={resetActive}
         />
-      </div>
+      </Wrapper>
     </div>
   );
 }

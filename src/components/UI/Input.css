@@ -4,12 +4,12 @@
 }
 
 .input {
-  caret-color: #26c2ae;
+  caret-color: var(--grayishGreen);
   font-family: Space-Mono;
   font-weight: 700;
   font-size: 24px;
   text-align: right;
-  color: #00474b;
+  color: var(--darkgray);
   width: 100%;
   margin-bottom: 32px;
   background: #f3f9fa;
@@ -20,26 +20,26 @@
   font-family: Space-Mono;
   font-weight: 700;
   font-size: 24px;
-  color: #00474b;
+  color: var(--darkgray);
   opacity: 35%;
 }
 
 .label {
-  color: #5e7a7d;
+  color: var(--grey);
   display: inline-block;
   margin-bottom: 6px;
 }
 
 .error-text {
-  color: #e17457;
+  color: var(--orangeRed);
 }
 
 .focus {
-  outline: 2px solid #26c2ae;
+  outline: 2px solid var(--grayishGreen);
 }
 
 .error {
-  outline: 2px solid #e17052;
+  outline: 2px solid var(--orangeRed);
   position: relative;
 }
 

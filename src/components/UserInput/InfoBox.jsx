@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./InfoBox.css";
+import "./InfoBox.scss";
 import Button from "../UI/Button";
 import Input from "../UI/Input";
 import dollarIcon from "../../assets/images/dollar-icon.svg";
