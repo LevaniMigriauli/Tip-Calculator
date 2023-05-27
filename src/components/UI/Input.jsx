@@ -1,22 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Input.scss";
 
 const Input = ({
   className,
   error,
-  // invalidInputText,
   label,
   onChange,
   type,
   value,
   placeholder,
   img,
+  noDot,
 }) => {
-  const [isFocused, setIsFocused] = useState(false);
-
-  const focusHandler = () => setIsFocused(true);
-  const blurHandler = () => setIsFocused(false);
-
   const labelisRendered = label && <label className="label">{label}</label>;
   const errorText = error ? <span className="error-text">{error}</span> : "";
 
@@ -26,8 +21,6 @@ const Input = ({
     backgroundPosition: "left 19px top 50%",
   };
 
-  // console.log(error);
-
   return (
     <>
       <div className="input-header">
@@ -35,17 +28,14 @@ const Input = ({
         {errorText}
       </div>
       <input
-        className={`input ${className} ${isFocused ? "focus" : ""} ${
-          error ? "error" : ""
-        }`}
+        className={`input ${className} ${error ? "error" : ""}`}
         style={backgroundImage}
-        type={type}
+        type="number"
         placeholder={placeholder}
         value={value}
         min={0}
         onChange={onChange}
-        onFocus={focusHandler}
-        onBlur={blurHandler}
+        onKeyDown={noDot}
       />
     </>
   );

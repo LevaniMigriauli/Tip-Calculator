@@ -10,18 +10,17 @@ function App() {
   const [nOfPeople, setNOfPeople] = useState("");
 
   function inputHandler(e) {
-    setInputValue(Number(e.target.value) === 0 ? "" : Number(e.target.value));
+    e.target.value.length < 8 && setInputValue(e.target.value);
   }
 
   function percInputHandler(e) {
-    setPercInputValue(Number(e) === 0 ? "" : Number(e));
+    e.length < 6 && setPercInputValue(e);
   }
 
   function nofPeopleHandler(e) {
-    setNOfPeople(Number(e.target.value));
+    e.target.value.length < 8 && setNOfPeople(e.target.value);
   }
 
-  console.log(inputValue, percInputValue, nOfPeople);
   const perPersonTip = (
     (inputValue * percInputValue) /
     100 /
@@ -32,8 +31,6 @@ function App() {
     (inputValue * (1 + percInputValue / 100)) /
     nOfPeople
   ).toFixed(2);
-  // console.log(perPersonTip, isNaN(perPersonTip), !isFinite(perPersonTip));
-  // console.log(totalTip, isNaN(totalTip), !isFinite(totalTip));
 
   const resetHandler = () => {
     setInputValue("");

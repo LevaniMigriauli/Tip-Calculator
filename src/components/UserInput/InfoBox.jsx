@@ -8,25 +8,40 @@ import personIcon from "../../assets/images/person-icon.svg";
 const tipsArray = [5, 10, 15, 25, 50];
 const invalidInputText = "Can't be zero";
 
-const InfoBox = (props) => {
-  // let error = false;
+const InfoBox = ({
+  input,
+  nOfPeople,
+  nofPeople,
+  onChangeBill,
+  percInput,
+  setPercInput,
+}) => {
   const [error, setError] = useState("");
 
-  console.log(props.nOfPeople);
+  const isEmpty = nOfPeople === "";
+
+  const isInvalid =
+    nOfPeople
+      .split("")
+      .map((el) => Number(el))
+      .reduce((a, b) => a + b, 0) === 0;
 
   useEffect(() => {
-    props.nOfPeople === 0 ? setError(invalidInputText) : setError("");
-  }, [props.nOfPeople]);
+    isEmpty
+      ? setError("")
+      : isInvalid
+      ? setError(invalidInputText)
+      : setError("");
+  }, [isEmpty, isInvalid]);
 
   return (
     <div className="info-box">
       <div className="info-box__bill">
         <Input
           className="input-bill"
-          type="number"
           label="Bill"
-          value={props.input}
-          onChange={props.onChangeBill}
+          value={input}
+          onChange={onChangeBill}
           placeholder="0"
           img={dollarIcon}
         />
@@ -36,33 +51,36 @@ const InfoBox = (props) => {
       <div className="percentage-selection">
         {tipsArray.map((item, index) => (
           <Button
-            id={Number(props.percInput) === item && "active"}
+            id={Number(percInput) === item ? "active" : ""}
             btnPercentage={item}
             key={index}
-            onClick={() => props.setPercInput(item)}
+            onClick={() => setPercInput(String(item))}
           ></Button>
         ))}
 
         <div className="info-box__people">
           <Input
             className="perc-input"
-            type="number"
-            value={props.percInput}
+            value={percInput}
             placeholder="Custom"
-            onChange={(e) => props.setPercInput(e.target.value)}
+            onChange={(e) => setPercInput(e.target.value)}
           />
         </div>
       </div>
 
       <Input
         className="input-nOfPeople"
-        type="number"
         placeholder="0"
         label="Number of People"
-        value={props.nOfPeople}
-        onChange={props.nofPeople}
+        value={nOfPeople}
+        onChange={nofPeople}
         error={error}
         img={personIcon}
+        noDot={(e) => {
+          if (e.key === ".") {
+            e.preventDefault();
+          }
+        }}
       />
     </div>
   );
