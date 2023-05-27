@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "./Input.scss";
 
 const Input = ({
@@ -22,7 +22,7 @@ const Input = ({
   };
 
   return (
-    <>
+    <Fragment>
       <div className="input-header">
         {labelisRendered}
         {errorText}
@@ -37,7 +37,7 @@ const Input = ({
         onChange={onChange}
         onKeyDown={noDot}
       />
-    </>
+    </Fragment>
   );
 };
 

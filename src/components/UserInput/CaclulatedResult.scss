@@ -9,68 +9,68 @@
   @include respond(medium) {
     padding: 40px;
   }
-}
 
-.Caclulated-result div {
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  div {
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-.Caclulated-result .tip-amount {
-  margin-bottom: 21px;
+    p {
+      &:first-child {
+        font-size: 16px;
+      }
 
-  @include respond(medium) {
-    margin-bottom: 25px;
+      &:last-child {
+        color: var(--grayishGreen);
+        font-size: 32px;
+
+        @include respond(medium) {
+          font-size: 48px;
+        }
+      }
+
+      span {
+        font-size: 13px;
+        color: #7f9d9f;
+        display: block;
+      }
+    }
   }
-}
-.Caclulated-result .total-amount {
-  margin-bottom: 33px;
 
-  @include respond(medium) {
-    margin-bottom: 122px;
+  .tip-amount {
+    margin-bottom: 21px;
+
+    @include respond(medium) {
+      margin-bottom: 25px;
+    }
   }
-}
 
-.Caclulated-result div p:first-child {
-  font-size: 16px;
-}
+  .total-amount {
+    margin-bottom: 33px;
 
-.Caclulated-result div p:last-child {
-  color: var(--grayishGreen);
-  font-size: 32px;
-
-  @include respond(medium) {
-    font-size: 48px;
+    @include respond(medium) {
+      margin-bottom: 122px;
+    }
   }
-}
 
-.Caclulated-result div p span {
-  font-size: 13px;
-  color: #7f9d9f;
-  display: block;
-}
-
-.Caclulated-result button {
-  font-family: Space-Mono;
-  font-size: 20px;
-  line-height: 30px;
-  color: var(--darkgray);
-  background: #0d686d;
-  width: 100%;
-  height: 48px;
-  border: none;
-  border-radius: 5px;
-
-  @include respond(medium) {
+  button {
+    font-family: Space-Mono;
+    font-size: 20px;
+    line-height: 30px;
+    color: var(--darkgray);
+    background: #0d686d;
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 5px;
   }
-}
 
-.Caclulated-result .filled {
-  background-color: var(--grayishGreen);
-}
+  .filled {
+    background-color: var(--grayishGreen);
 
-.Caclulated-result button:active {
-  background: #9fe8df;
+    &:active {
+      background: #9fe8df;
+    }
+  }
 }

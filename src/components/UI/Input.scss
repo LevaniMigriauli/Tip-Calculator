@@ -3,6 +3,16 @@
 .input-header {
   display: flex;
   justify-content: space-between;
+
+  .label {
+    color: var(--grey);
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+
+  .error-text {
+    color: var(--orangeRed);
+  }
 }
 
 .input {
@@ -21,27 +31,17 @@
     outline: 2px solid var(--grayishGreen);
   }
 
+  &::placeholder {
+    font-family: Space-Mono;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--darkgray);
+    opacity: 35%;
+  }
+
   @include respond(medium) {
     margin-bottom: 0;
   }
-}
-
-.input::placeholder {
-  font-family: Space-Mono;
-  font-weight: 700;
-  font-size: 24px;
-  color: var(--darkgray);
-  opacity: 35%;
-}
-
-.label {
-  color: var(--grey);
-  display: inline-block;
-  margin-bottom: 6px;
-}
-
-.error-text {
-  color: var(--orangeRed);
 }
 
 .error {
