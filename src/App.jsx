@@ -10,15 +10,15 @@ function App() {
   const [nOfPeople, setNOfPeople] = useState("");
 
   function inputHandler(e) {
-    e.target.value.length < 8 && setInputValue(e.target.value);
+    e.target.value.length < 6 && setInputValue(e.target.value);
   }
 
   function percInputHandler(e) {
-    e.length < 6 && setPercInputValue(e);
+    e.length < 4 && setPercInputValue(e);
   }
 
   function nofPeopleHandler(e) {
-    e.target.value.length < 8 && setNOfPeople(e.target.value);
+    e.target.value.length < 5 && setNOfPeople(e.target.value);
   }
 
   const perPersonTip = (
